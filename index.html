@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vybify</title>
+    <script src="https://kit.fontawesome.com/ec366b3a1c.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Nunito:wght@200&family=Roboto:wght@500&family=Ubuntu&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Nunito:wght@200&family=Varela+Round&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+            font-family: 'ubuntu', sans-serif;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* background-image: url("https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt2de0e1949719099c/632cb28d004ea246aac3c487/Shakira_perform.png"); */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation-name: bgchange;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+
+        @keyframes bgchange {
+
+            0%,
+            100% {
+                background-image: url("https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt2de0e1949719099c/632cb28d004ea246aac3c487/Shakira_perform.png");
+            }
+
+            8% {
+                background-image: url("https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWN8ZW58MHx8MHx8fDA%3D&w=1000&q=80");
+            }
+
+            16% {
+                background-image: url("https://img.texasmonthly.com/2021/10/olivia-rodrigo-acl.jpg?auto=compress&crop=faces&fit=fit&fm=pjpg&ixlib=php-3.3.1&q=45");
+            }
+
+            24% {
+                background-image: url("https://images.hdqwalls.com/wallpapers/ariana-grande-live-performance-on-stage-4k.jpg");
+            }
+
+            32% {
+                background-image: url("https://i.pinimg.com/originals/0b/b6/40/0bb640380038450ab77344f7ac82b689.jpg");
+            }
+
+            40% {
+                background-image: url("https://images.unsplash.com/photo-1506157999258-a35364384ce9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+            }
+
+            48% {
+                background-image: url("https://www.rollingstone.com/wp-content/uploads/2022/07/Hyghly-Alleyne_IMG_3597.jpg");
+            }
+
+            56% {
+                background-image: url("https://wallpapercave.com/wp/wp4246779.jpg");
+            }
+
+            64% {
+                background-image: url("https://i.scdn.co/image/ab6761610000e5eb77ef80571a40d9d19cf52208");
+            }
+
+            72% {
+                background-image: url("https://wallpapercave.com/dwp2x/wp7596478.png");
+            }
+
+            80% {
+                background-image: url("https://www.rollingstone.com/wp-content/uploads/2023/05/taylor-swift-metlife-opening.jpg?w=1600&h=900&crop=1");
+            }
+
+            88% {
+                background-image: url("https://assets.gqindia.com/photos/616d01e5fdf9c5e20f8e4f68/4:3/w_3556,h_2667,c_limit/GettyImages-1338417856.jpg");
+            }
+
+            96% {
+                background-image: url("https://w0.peakpx.com/wallpaper/720/651/HD-wallpaper-sabrina-carpenter-2017-live-performace-sabrina-carpenter-celebrities-girls-music-singer.jpg");
+            }
+        }
+
+        @keyframes blackbg {
+
+            0%,
+            100% {
+                background-color: rgb(35, 35, 35);
+            }
+        }
+
+        @keyframes whitebg {
+
+            0%,
+            100% {
+                background-color: rgb(187, 187, 187);
+            }
+        }
+
+
+        /* PHONE-MENU */
+
+
+        .phone-menu {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.557);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            /* height: auto !important; */
+            min-height: 100vh;
+            z-index: 20000;
+            backdrop-filter: blur(20px);
+            animation: show;
+            display: none;
+            animation-duration: 0s;
+        }
+
+        .phone-menu .pmenu-wrap {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+            height: 100%;
+        }
+
+        @keyframes show {
+            from {
+                display: none;
+            }
+
+            to {
+                display: block;
+            }
+        }
+
+        @keyframes exit1 {
+            from {
+                display: block;
+            }
+
+            to {
+                display: none;
+            }
+        }
+
+        .phone-menu .exit {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 3rem;
+            margin: 1rem;
+            cursor: pointer;
+            text-shadow: 2px 2px 2px black;
+            transition: hover 0.2s;
+        }
+
+        .phone-menu .exit:hover {
+            font-size: 3.4rem;
+        }
+
+        .pnav {
+            width: 80%;
+            margin: 0 auto;
+            /* margin: 0.5rem 2rem; */
+            color: rgb(234, 234, 234);
+            list-style: none;
+            /* font-weight: 600; */
+        }
+
+        .pnav h2 {
+            font-size: 3rem;
+            text-shadow: 3px 3px 4px black;
+            margin: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .pnav ul {
+            margin: 20px;
+            font-size: 1.3rem;
+            list-style: none;
+        }
+
+        .pnav ul li {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ff9f9f;
+            text-shadow: 3px 3px 4px black;
+            cursor: pointer;
+        }
+
+        .pnav ul li:hover {
+            color: #ff5757;
+        }
+
+        .pnav ul li i {
+            font-size: 1.4rem;
+            margin-right: 20px;
+            color: #ffefbf;
+            text-shadow: 3px 3px 4px black;
+        }
+
+
+
+        /* WRAP-WHOLE-SCREEN */
+
+        .wrap-all {
+            /* display: none; */
+            position: relative;
+            width: 100%;
+        }
+
+        /* PHONE-NAVBAR */
+
+        .phone-navbar {
+            padding: 5px 20px;
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            height: 3rem;
+            background-color: rgb(0, 0, 0);
+            display: none;
+            z-index: 10000;
+        }
+
+        .phone-navbar i {
+            cursor: pointer;
+        }
+
+        .phone-navbar .phone-brand {
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .phone-navbar .phone-brand img {
+            width: 1.8rem;
+            margin-right: 5px;
+        }
+
+        .phone-navbar .phone-searchbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-navbar input {
+            display: none;
+        }
+
+        .phone-navbar .hamburger {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone-navbar .pxmark {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-navbar .hamburger i {
+            color: white;
+            margin: 5px;
+        }
+        .phone-navbar .pxmark{
+            display: none;
+        }
+
+
+        /* PHONE-THEME-TAB */
+
+        .phone-theme-tab {
+            z-index: 9999;
+            position: fixed;
+            top: -5rem;
+            left: 0;
+            backdrop-filter: blur(50px);
+            background-color: rgba(23, 0, 0, 0.689);
+            width: 100%;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            transition: top 0.5s;
+            /* display: none; */
+        }
+
+        .phone-theme-tab h3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .black1,
+        .white1,
+        .dynamic1 {
+            border-radius: 50px;
+            padding: 5px 0;
+            width: 70px;
+            /* height: 30px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1rem;
+            /* font-weight: 600; */
+            transition: box-shadow 0.4s;
+            box-shadow: 4px 4px 10px black,
+                -1px -1px 3px black;
+        }
+
+        .black1:hover,
+        .white1:hover,
+        .dynamic1:hover {
+            cursor: pointer;
+            /* border: 2px solid blue; */
+            box-shadow: 0 0 10px rgb(255, 255, 255),
+                0 0 4px blue;
+
+        }
+
+        .white1 {
+            background-color: white;
+            color: black;
+            font-weight: 600;
+        }
+
+        .black1 {
+            font-weight: 600;
+            background-color: rgb(30, 30, 30);
+            color: white;
+        }
+
+        .dynamic1 {
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+            background: linear-gradient(#e66465, #9198e5);
+        }
+
+
+        /* LEFT */
+
+        .left {
+            position: fixed;
+            left: 0;
+            top: 0;
+            min-height: 95vh;
+            margin-bottom: 50px;
+            width: 20%;
+            background-color: rgba(0, 0, 0, 0.639);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px black;
+        }
+
+        .left .brand {
+            margin: 15px 20px;
+            font-weight: 600;
+            display: flex;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .left .brand img {
+            width: 22px;
+            margin-right: 10px;
+        }
+
+        .left .nav {
+            margin: 20px 10px;
+            color: rgb(234, 234, 234);
+            list-style: none;
+            font-weight: 600;
+        }
+
+        .left .nav h2 {
+            font-size: 1.2rem;
+            text-shadow: 3px 3px 4px black;
+            margin: 10px;
+            color: rgb(234, 234, 234);
+        }
+
+        .left .nav ul {
+            margin: 10px 0 10px 20px;
+            font-size: 0.9rem;
+            list-style: none;
+        }
+
+        .left .nav ul li {
+            margin: 20px 0;
+        }
+
+        .left .nav .nav-list {
+            cursor: pointer;
+            color: rgb(202, 202, 202);
+        }
+
+        .left .nav ul li i {
+            margin-right: 20px;
+        }
+
+        .left .nav li:hover {
+            text-shadow: 3px 3px 4px black;
+        }
+
+        .left .nav .homei {
+            color: rgb(255, 71, 71);
+        }
+
+        .left .nav ul .search-bar {
+            display: flex;
+            color: rgb(209, 209, 209);
+        }
+
+        .left .nav ul .search-bar .browse {
+            margin: 0 0 0 20px;
+            display: none;
+        }
+
+        /* SEARCH BAR  and THEME-BAR */
+
+        .search-theme {
+            margin-left: 20%;
+            margin-bottom: 0.3rem;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .search-span {
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            width: 60%;
+        }
+
+        .search-span i {
+            width: 10%;
+            cursor: pointer;
+            text-shadow: 2px 2px 2px black;
+            font-size: 1.4rem;
+        }
+
+        input[type=text] {
+            width: 30%;
+            padding: 7px 10px;
+            border-radius: 20px;
+            background-color: transparent;
+            border: 2px solid rgb(255, 255, 255);
+            transition: 0.5s;
+            font-size: 1.1rem;
+            font-weight: 700;
+            opacity: 0.5;
+            box-shadow: 5px 5px 5px black;
+        }
+
+        input[type=text]:focus {
+            backdrop-filter: blur(50px);
+            background-color: rgba(0, 0, 0, 0.331);
+            width: 80%;
+            color: white;
+            opacity: 1;
+        }
+
+        ::placeholder {
+            opacity: 0.8;
+            color: white;
+        }
+
+        .theme-span {
+            width: 40%;
+            padding: 6px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .theme-span h3 {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .black,
+        .white,
+        .dynamic {
+            border-radius: 50px;
+            margin: 0 5px;
+            width: 60px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 0.8rem;
+            transition: box-shadow 0.4s;
+            box-shadow: 4px 4px 10px black,
+                -1px -1px 3px black;
+        }
+
+        .black:hover,
+        .white:hover,
+        .dynamic:hover {
+            cursor: pointer;
+            box-shadow: 0 0 10px rgb(255, 255, 255),
+                0 0 4px blue;
+
+        }
+
+        .white {
+            background-color: white;
+            color: black;
+            font-weight: 600;
+        }
+
+        .black {
+            font-weight: 600;
+            background-color: rgb(30, 30, 30);
+            color: white;
+        }
+
+        .dynamic {
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+            background: linear-gradient(#e66465, #9198e5);
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /* HOME */
+
+        .heading {
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            padding-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+
+        .home {
+            position: relative;
+            margin-left: 20%;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin-bottom: 50px;
+        }
+
+        /* HOME > whatsnew */
+
+        /* .whatsnew{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.751);
+            margin-bottom: 1rem;
+        } */
+
+        /* .whatsnew .newwrap{
+            position: relative;
+            width: 100%;
+        } */
+        /* .whatsnew .newwrap .new-item{
+            width: 100%;
+            position: absolute;
+        } */
+
+
+        /* HOME > RECOMMENDED-SECTION */
+
+
+        .home .recommend-section {
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.751);
+            margin-bottom: 1rem;
+        }
+
+        .home .recommend-section .recommend {
+            padding-top: 10px;
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .recommend::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .home .recommend-section .recommend .rec1 {
+            display: inline-block;
+            width: 120px;
+            margin-right: 30px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .home .recommend-section .recommend .rec1 .recimg {
+            width: 100%;
+        }
+
+        .home .recommend-section .recommend .rec1:hover {
+            transform: translateY(-8px);
+        }
+
+        .home .recommend-section .recommend .rec1 .recimg img {
+            width: 100%;
+        }
+
+        .home .recommend-section .recommend .rec1 .recinf h3 {
+            font-size: 0.8rem;
+        }
+
+        .home .recommend-section .recommend .rec1 .recinf h4 {
+            font-size: 0.6rem;
+        }
+
+
+        /* HOME > section2 */
+
+
+        .home .section2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-radius: 10px;
+            padding: 10px 0;
+        }
+
+
+        /* HOME> SECTION-2 > TOP-SONG */
+
+
+        .home .section2 .topsong {
+            backdrop-filter: blur(3px);
+            font-family: 'varela Round', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 59%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            padding: 0.6rem;
+        }
+
+        .home .section2 .topsong .songitem {
+            height: 50px;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.76);
+            color: rgb(255, 255, 255);
+            padding: 0 15px;
+            margin: 12px 0;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+
+        .home .section2 .topsong .songitem .song-name {
+            display: flex;
+            width: 45%;
+            justify-content: space-evenly;
+        }
+
+        .home .section2 .topsong .songitem img {
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .home .section2 .topsong .songitem .timestamp i {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+
+        /* HOME > section2 > moodcontainer */
+
+
+        .home .section2 .moodcontainer {
+            backdrop-filter: blur(3px);
+            font-family: 'varela Round', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 39%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            padding: 0.6rem;
+        }
+
+        .home .section2 .moodcontainer .moodplaylist {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            padding: 12px 0;
+        }
+
+        .home .section2 .moodcontainer .moodplaylist .mooditem {
+            background: rgba(53, 53, 53, 0.484);
+            backdrop-filter: blur(100px);
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px black;
+            position: relative;
+            overflow: hidden;
+            margin: 0.2rem;
+        }
+
+        .home .section2 .moodcontainer .mooditem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+        }
+
+        .home .section2 .moodcontainer .moodplaylist .mooditem a {
+            position: absolute;
+            top: 0;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 300;
+            transition: all 0.3s;
+            text-shadow: 3px 3px 10px black;
+        }
+
+        .home .section2 .moodcontainer .moodplaylist .mooditem a:hover {
+            font-size: 1.1rem;
+            background-color: rgba(0, 0, 0, 0.427);
+        }
+
+
+        /*  SONGS  */
+
+        .songs .heading2 {
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px black;
+        }
+
+
+        .songs {
+            position: relative;
+            margin-left: 20%;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            display: none;
+            margin-bottom: 50px;
+        }
+
+        /* SONGS > TOP-ARTIST */
+
+
+        .songs .top-artist {
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .songs .top-artist:hover {
+            background-color: rgb(0, 0, 0, 0.351);
+        }
+
+        .songs .top-artist .artistlist {
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .artistlist::-webkit-scrollbar {
+            display: none;
+        }
+
+        .songs .top-artist .artistlist .artistimg {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 10px;
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 0 10px black;
+        }
+
+        .songs .top-artist .artistlist .artistimg img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+
+        .songs .top-artist .artistlist .artistimg a {
+            width: 100%;
+            height: 120px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 0.6rem;
+            text-shadow: 2px 2px 5px black;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: font-size 0.5s;
+            font-weight: 800;
+        }
+
+        .songs .top-artist .artistlist .artistimg a:hover {
+            background-color: rgba(0, 0, 0, 0.368);
+            opacity: 1;
+            font-size: 1rem;
+        }
+
+
+        /* SONGS > SONG-HITS */
+
+
+        .songs .song-hits {
+            color: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .songs .song-hits:hover {
+            background-color: rgba(0, 0, 0, 0.351);
+        }
+
+        .songs .song-hits .song-hits-list {
+            width: 100%;
+            padding-top: 10px;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .song-hits-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .songs .song-hits .song-hits-list .hit1 {
+            display: inline-block;
+            width: 140px;
+            margin-right: 20px;
+            transition: 0.3s;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 10px 0 10px;
+            backdrop-filter: blur(100px);
+            box-shadow: 0 0 4px black;
+        }
+
+        .songs .song-hits .song-hits-list .hit1 .hit1-img {
+            width: 100%;
+        }
+
+        .songs .song-hits .song-hits-list .hit1 .hit1-img img {
+            width: 100%;
+        }
+
+        .songs .song-hits .song-hits-list .hit1:hover {
+            transform: translateY(-7px);
+        }
+
+        .songs .song-hits .song-hits-list .hit1 .hit1-inf {
+            padding: 4px 0 10px 5px;
+        }
+
+        .songs .song-hits .song-hits-list .hit1 .hit1-inf h3 {
+            font-size: 0.7rem;
+            margin-bottom: 3px;
+        }
+
+        .songs .song-hits .song-hits-list .hit1 .hit1-inf h4 {
+            font-size: 0.6rem;
+        }
+
+        .songs .song-hits .song-hits-list .tod-hits {
+            backdrop-filter: blur(100px);
+            background-color: rgba(0, 0, 255, 0.116);
+        }
+
+        .songs .song-hits .song-hits-list .country {
+            backdrop-filter: blur(100px);
+            background-color: rgb(255, 0, 217, 0.116);
+        }
+
+        .songs .song-hits .song-hits-list .pop {
+            backdrop-filter: blur(100px);
+            background-color: rgba(16, 243, 0, 0.116);
+        }
+
+        .songs .song-hits .song-hits-list .r-b {
+            backdrop-filter: blur(100px);
+            background-color: rgba(255, 0, 0, 0.116);
+        }
+
+        .songs .song-hits .song-hits-list .romantic {
+            backdrop-filter: blur(100px);
+            background-color: rgba(47, 0, 83, 0.116);
+        }
+
+        .songs .song-hits .song-hits-list .hip-hop {
+            backdrop-filter: blur(100px);
+            background-color: rgba(214, 182, 0, 0.116);
+        }
+
+
+        /* LIKED */
+
+
+        .liked {
+            margin-left: 20%;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            min-height: 70vh;
+            margin-bottom: 50px;
+            display: none;
+        }
+
+        .liked .title {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.333);
+            backdrop-filter: blur(50px);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 40px 10px;
+            font-size: 2.5rem;
+        }
+
+        .liked .title i {
+            color: rgb(255, 71, 71);
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 4rem;
+        }
+
+        .liked .liked-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .liked .liked-list .likeditem {
+            width: 100%;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.719);
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            border-bottom: 2px solid black;
+            cursor: pointer;
+        }
+
+        .liked .liked-list .likeditem:hover {
+            font-weight: 800;
+            background-color: rgba(48, 48, 48, 0.557);
+            color: rgb(0, 0, 0);
+            backdrop-filter: blur(20px);
+
+        }
+
+        .liked .liked-list .likeditem img {
+            width: 40px;
+        }
+
+        .liked .liked-list .likeditem .liked-name {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .liked .liked-list .likeditem .liked-name p {
+            margin-right: 50px;
+        }
+
+        .liked .liked-list .likeditem .liked-timestamp {
+            display: flex;
+            width: 20%;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .liked .liked-list .likeditem .liked-timestamp .licon {
+            margin: auto 0;
+        }
+
+        .liked .liked-list .likeditem .liked-timestamp .fa-ellipsis-vertical {
+            display: none;
+        }
+
+
+
+        /* .liked .liked-list .likeditem .liked-timestamp i {
+            margin-right: 30px;
+            cursor: pointer;
+            color: rgb(255, 71, 71);
+        }
+        .liked .liked-list .likeditem .liked-timestamp div {
+            margin-right: 30px;
+        } */
+
+
+        /* PLAYLIST */
+
+
+        .pheading {
+            font-weight: 600;
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .playlist {
+            margin-left: 20%;
+            margin-bottom: 50px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            min-height: 70vh;
+            display: none;
+        }
+
+
+        /* LIBRARY > PLAYLIST > POPULAR-PLAYLIST  */
+
+
+        .playlist .popular-playlist {
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .playlist .popular-playlist .popular-list {
+            width: 100%;
+            padding-top: 10px;
+            margin: 0.5rem 0;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .popular-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item {
+            display: inline-block;
+            width: 200px;
+            margin-right: 15px;
+            transition: 0.5s;
+            border-radius: 3px;
+            padding: 10px 10px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 4px black;
+            color: white;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item:hover {
+            transform: translateY(-7px);
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item:nth-child(n) {
+            background: linear-gradient(0deg, rgba(6, 0, 63, 0.5) 45%, rgba(255, 255, 255, 0.704) 95%);
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item:nth-child(2n) {
+            background: linear-gradient(0deg, rgba(128, 0, 34, 0.5) 45%, rgba(255, 255, 255, 0.704) 95%);
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item:nth-child(3n) {
+            background: linear-gradient(0deg, rgba(211, 95, 0, 0.5) 45%, rgba(255, 255, 255, 0.704) 95%);
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item .popular-info h4 {
+            text-shadow: 1px 1px 2px black;
+            margin: 5px 0;
+            font-weight: 1;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item .popular-images {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 19px 68px, rgba(0, 0, 0, 0.461) 0px 15px 12px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item .popular-images img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item .popular-icons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .playlist .popular-playlist .popular-list .popular-item .popular-icons i {
+            margin: 0 4px;
+            text-shadow: 1px 1px 2px black;
+            cursor: pointer;
+        }
+
+
+        /* LIBRARY > PLAYLIST > PLAYLIST-SECTION2 */
+
+
+        .playlist .playlist-section2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-radius: 10px;
+            padding: 10px 0;
+        }
+
+
+        /* PLAYLIST > SECTION2 > MYPLAYLIST */
+
+
+        .playlist .playlist-section2 .myplaylist {
+            backdrop-filter: blur(3px);
+            font-family: 'varela Round', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 68%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            padding: 0.6rem;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            margin-bottom: 5px;
+            color: white;
+            padding: 0 2rem;
+            background: rgba(53, 53, 53, 0.484);
+            backdrop-filter: blur(100px);
+            transition: 0.5s;
+            text-shadow: 1px 1px black;
+            border-radius: 8px;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item .imginfo-wrap {
+            display: flex;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item .imginfo-wrap .liked-name {
+            display: flex;
+            margin-left: 5px;
+            font-weight: 100;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item .imginfo-wrap .liked-name h3,
+        .playlist .playlist-section2 .myplaylist .mylist-item .imginfo-wrap .liked-name h5 {
+            margin: 3px;
+            font-weight: 200;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item .songnum h4 {
+            font-weight: 200;
+
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item i:hover {
+            cursor: pointer;
+            color: rgb(255, 139, 45);
+            text-shadow: 2px 2px 2px black;
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item:hover {
+            background-color: rgba(86, 0, 0, 0.527);
+        }
+
+        .playlist .playlist-section2 .myplaylist .mylist-item img {
+            height: 47px;
+            width: 47px;
+        }
+
+        /* PLAYLIST > SECTION2 > RECENT PLAYLIST */
+
+        .playlist .playlist-section2 .playlistwrapper {
+            backdrop-filter: blur(3px);
+            font-family: 'varela Round', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            padding: 0.6rem;
+        }
+
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist {
+
+            width: 100%;
+            gap: 0.5rem;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items {
+            width: 100%;
+            margin-bottom: 0.8rem;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 0 10px black;
+        }
+
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items .rec-info {
+            position: absolute;
+            bottom: 0;
+            padding: 5px;
+            font-size: 0.8rem;
+        }
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items .rec-info h3,
+        .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items .rec-info h4{
+            background-color: rgba(255, 255, 255, 0.642);
+        }
+
+
+        /* BOTTOM */
+
+        .bottom {
+            backdrop-filter: blur(20px);
+            background-color: rgba(0, 0, 0, 0.74);
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .bottom .song-playing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom .song-playing img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .bottom .song-playing .currentsong {
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .bottom .song-playing .currentsong marquee {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 3px 0;
+            display: none;
+        }
+
+        .bottom .controls i {
+            cursor: pointer;
+            font-size: 1.35rem;
+            margin: 0 10px;
+            color: var(--icon-bg);
+        }
+
+        .bottom .phone-control {
+            display: none;
+        }
+
+        .bottom .phone-control i {
+            cursor: pointer;
+            font-size: 1.35rem;
+            margin: 0 7px;
+            color: var(--icon-bg);
+        }
+
+        .bottom .range #progress-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            accent-color: rgb(255, 142, 142);
+            width: 400px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 5px;
+        }
+
+        .bottom .icons i {
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            color: var(--icon-bg);
+        }
+
+        .bottom i:hover {
+            color: white;
+        }
+
+        /* PHONE-SONG-PLAYER */
+
+        .song-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #0000007b;
+            padding: 1rem;
+            backdrop-filter: blur(15px);
+            z-index: 50000;
+            display: none;
+        }
+
+        .song-player-cont {
+            /* background-color: #00000075; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .playerimg {
+            width: 45%;
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .playerimg img {
+            width: 100%;
+            margin-bottom: 3%;
+        }
+
+        .playerinfo {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .player-info-cont {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .song-player .player-info-cont input {
+            width: 80%;
+            height: 6px;
+            margin-bottom: 5%;
+        }
+
+        .song-player .player-info-cont .player-control {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .song-player .player-info-cont .player-control .one {
+            color: #ff84bc;
+            font-size: 1.3rem;
+        }
+
+        .song-player .player-info-cont .player-control .two {
+            color: #bcbcbc;
+            font-size: 1.7rem;
+            margin: 0 10%;
+        }
+
+        .song-player .player-info-cont .player-control .fa-circle-play {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .song-player .close-player {
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 2rem;
+            margin: 2rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        @media (max-width:900px) {
+
+            /* THEME */
+
+            .black,
+            .white,
+            .dynamic {
+                font-size: 0.65rem;
+                border-radius: 50px;
+                margin: 0 2px;
+                width: 55px;
+            }
+
+            /* HOME */
+
+            .home .recommend-section .recommend .rec1 {
+                width: 100px;
+            }
+
+            .home .section2 {
+                flex-direction: column;
+            }
+
+            .home .section2 .topsong {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .home .section2 .moodcontainer {
+                width: 100%;
+            }
+
+            .home .section2 .moodcontainer .moodplaylist {
+                grid-template-columns: 33% 33% 33%;
+            }
+
+            .home .section2 .moodcontainer .moodplaylist .mooditem {
+                margin: 0.5rem;
+            }
+
+            /* SONGS */
+
+            .songs .top-artist .artistlist .artistimg {
+                width: 100px;
+                height: 100px;
+            }
+
+            .songs .song-hits .song-hits-list .hit1 {
+                margin-right: 10px;
+                width: 120px;
+            }
+
+            /* PLAYLIST */
+
+            .playlist .popular-playlist {
+                padding: 5px 0;
+            }
+
+            .playlist .popular-playlist .popular-list .popular-item {
+                padding: 5px;
+                width: 140px;
+            }
+
+            .playlist .popular-playlist .popular-list .popular-item .popular-images {
+                width: 120px;
+                height: 120px;
+                margin: 5px auto;
+            }
+
+            .playlist .popular-playlist .popular-list .popular-item .popular-icons i {
+                font-size: 0.8rem;
+            }
+
+            .playlist .popular-playlist .popular-list .popular-item .popular-info {
+                font-size: 0.8rem;
+            }
+
+            .playlist .playlist-section2 {
+                flex-direction: column;
+            }
+
+            .playlist .playlist-section2 .myplaylist {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .playlist .playlist-section2 .playlistwrapper {
+                width: 100%;
+            }
+
+            .playlist .playlist-section2 .playlistwrapper .recent-playlist {
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items {
+                width: 32%;
+                height: 120px;
+            }
+
+            /* BOTTOM */
+
+            .bottom {
+                padding: 0 10px;
+            }
+
+            .bottom .range #progress-bar {
+                width: 200px;
+                height: 3px;
+                margin: auto 0;
+            }
+
+            .bottom .song-playing {
+                width: 30%;
+                justify-content: left;
+            }
+
+            .bottom .song-playing .currentsong {
+                width: 95%;
+            }
+
+        }
+
+        @media (max-width:750px) {
+
+            /* LEFT */
+
+            .left {
+                width: 25%;
+            }
+
+            /* SEARCH-THEME */
+
+            .search-theme {
+                margin-left: 25%;
+                width: 75%;
+            }
+
+            .search-theme .search-span {
+                width: 55%;
+            }
+
+            .search-theme .theme-span {
+                width: 45%;
+            }
+
+            .theme-span h3 {
+                display: none;
+            }
+
+            .theme-span div {
+                width: 33%;
+            }
+
+            /* HOME */
+
+            .home {
+                margin-left: 25%;
+                width: 75%;
+            }
+
+            .home .recommend-section .recommend .rec1 {
+                width: 80px;
+                margin-right: 10px;
+            }
+
+            .home .recommend-section .recommend .rec1 .recinf h3 {
+                font-size: 0.6rem;
+            }
+
+            .home .recommend-section .recommend .rec1 .recinf h4 {
+                font-size: 0.4rem;
+            }
+
+            .home .section2 .topsong .songitem .song-name {
+                justify-content: space-between;
+            }
+
+            .home .section2 .topsong .songitem {
+                padding: 0 8px;
+            }
+
+            .home .section2 .moodcontainer .moodplaylist {
+                grid-template-columns: 50% 50%;
+            }
+
+            /* SONGS */
+
+            .songs {
+                margin-left: 25%;
+                width: 75%;
+            }
+
+            .songs .top-artist .artistlist .artistimg {
+                width: 80px;
+                height: 80px;
+            }
+
+            .songs .song-hits .song-hits-list .hit1 {
+                margin-right: 8px;
+                width: 100px;
+                /* height: 140px; */
+            }
+
+            .songs .song-hits .song-hits-list .hit1 .hit1-inf {
+                padding: 4px 0 5px 5px;
+            }
+
+            /* LIKED */
+
+            .liked {
+                margin-left: 25%;
+                width: 75%;
+            }
+
+            .liked .title {
+                padding: 20px 10px;
+                font-size: 1.8rem;
+            }
+
+            .liked .liked-list .likeditem {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .liked .liked-list .likeditem .liked-name {
+                flex-direction: column;
+                /* justify-content: ; */
+            }
+
+            .liked .liked-list .likeditem .liked-name p {
+                margin-right: 0;
+            }
+
+            .liked .liked-list .likeditem .liked-timestamp i {
+                margin-right: 5px;
+            }
+
+            /* PLAYLIST */
+
+            .playlist {
+                margin-left: 25%;
+                width: 75%;
+            }
+
+            .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items {
+                width: 44%;
+                height: 140px;
+            }
+
+            /* BOTTOM */
+
+            .bottom .controls i {
+                font-size: 1.3rem;
+                margin: 0 2px;
+            }
+
+            .bottom .icons i {
+                margin: 0 2px;
+            }
+
+        }
+
+        @media (max-width:600px) {
+
+            .search-theme {
+                display: none;
+            }
+
+            .phone-navbar {
+                display: flex;
+            }
+
+            .left {
+                display: none;
+            }
+
+            /* HOME */
+
+            .home {
+                width: 97%;
+                margin: 50px 1.5%;
+            }
+
+            .home .section2 .topsong .songitem .song-name {
+                flex-direction: column;
+            }
+
+            .home .section2 .topsong .songitem {
+                padding: 0 10px;
+            }
+
+            /* SONGS */
+
+            .songs {
+                width: 97%;
+                margin: 50px 1.5%;
+            }
+
+            /* LIKED */
+
+            .liked {
+                width: 97%;
+                margin: 50px 1.5%;
+            }
+
+            /* pLAYLIST */
+
+            .playlist {
+                width: 97%;
+                margin: 50px 1.5%;
+            }
+
+            /* BOTTOM */
+
+            .bottom .range,
+            .bottom .icons {
+                display: none;
+            }
+
+            .bottom .song-playing {
+                width: 55%;
+            }
+
+            .bottom .controls {
+                display: none;
+            }
+
+            .bottom .phone-control {
+                width: 40%;
+                justify-content: end;
+                display: flex;
+            }
+
+            .bottom .song-playing .currentsong marquee {
+                display: block;
+            }
+
+            .bottom .song-playing .currentsong .h3song {
+                display: none;
+            }
+        }
+
+
+
+        @media (max-width:450px) {
+
+            /* HOME */
+
+            .home .section2 .topsong .songitem .timestamp .length {
+                display: none;
+            }
+
+            /* LIKED */
+
+            .liked .title i {
+                font-size: 3rem;
+            }
+
+            .liked .title {
+                font-size: 1.5rem;
+            }
+
+            .liked .liked-list .likeditem .liked-timestamp {
+                width: 30%;
+            }
+
+            .liked .liked-list .likeditem .liked-timestamp .fa-ellipsis-vertical {
+                display: block;
+                margin: auto 0;
+            }
+
+            .liked .liked-list .likeditem .liked-album {
+                display: none;
+            }
+
+            /* PLAYLIST */
+
+            .playlist .playlist-section2 .myplaylist .mylist-item {
+                padding: 0 0.5rem;
+            }
+
+            .playlist .playlist-section2 .playlistwrapper .recent-playlist .playlist-items {
+                height: 110px;
+            }
+
+            /* SONG-PLAYER */
+
+            .playerimg {
+                width: 80%;
+                margin-bottom: 10%;
+                display: flex;
+                flex-direction: column;
+                /* justify-content: center; */
+                align-items: center;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <!-- PHONE-THEME-TAB -->
+    <div class="phone-theme-tab">
+        <h3>THEME</h3>
+        <div class="black1">Dark</div>
+        <div class="white1">Light</div>
+        <div class="dynamic1">Dynamic</div>
+    </div>
+
+    <!--PHONE-MENU -->
+
+    <div class="phone-menu">
+        <i class="fa-solid fa-xmark exit"></i>
+
+        <div class="pmenu-wrap">
+            <div class="pnav">
+                <h2>Library</h2>
+                <ul>
+                    <li class="nav-list homei1"><i class="fa-solid fa-house"></i>Home</li>
+                    <li class="nav-list songsi1"><i class="fa-solid fa-headphones-simple"></i>Songs</li>
+                    <li class="nav-list likedi1"><i class="fa-regular fa-heart"></i>Liked</li>
+                    <li class="nav-list playlisti1"><i class="fa-solid fa-music"></i>Playlists</li>
+                </ul>
+            </div>
+            <div class="pnav">
+                <h2>Discover</h2>
+                <ul>
+                    <li class="nav-list radio"><i class="fa-solid fa-radio"></i>Radio</li>
+                    <li class="nav-list podcast"><i class="fa-solid fa-podcast"></i>Podcast</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- WRAPPING WHOLE SCREEN -->
+
+    <div class="wrap-all">
+
+        <!-- PHONE-NAVBAR -->
+
+        <div class="phone-navbar">
+            <div class="hamburger"><i class="fa-solid fa-bars fa-xl"></i><i
+                    class="fa-solid fa-circle-half-stroke fa-xl"></i>
+            </div>
+            <div class="phone-brand"><img src="music-logo.png" alt="">
+                Vybify
+            </div>
+            <div class="phone-searchbox">
+                <i class="fa-solid fa-magnifying-glass fa-xl phone-search" style="color: white;"></i>
+            </div>
+            <input type="text" placeholder="browse" name="search" class="phone-search-input" id="search">
+            <i class="fa-solid fa-xmark fa-xl pxmark"></i>
+
+        </div>
+
+        <!-- LEFT -->
+
+        <div class="left">
+
+            <div class="brand"><img src="music-logo.png" alt="">
+                Vybify
+            </div>
+            <hr style="border: 1px solid grey;">
+            <div class="nav">
+                <h2>Library</h2>
+                <ul>
+                    <li class="nav-list homei"><i class="fa-solid fa-house"></i>Home</li>
+                    <li class="nav-list songsi"><i class="fa-solid fa-headphones-simple"></i>Songs</li>
+                    <li class="nav-list likedi"><i class="fa-regular fa-heart"></i>Liked</li>
+                    <li class="nav-list playlisti"><i class="fa-solid fa-music"></i>Playlists</li>
+                </ul>
+            </div>
+            <div class="nav">
+                <h2>Discover</h2>
+                <ul>
+                    <label for="searchme">
+                        <li class=" nav-list browse"><i class="fa-solid fa-magnifying-glass"></i>Search</li>
+                    </label>
+                    <li class="nav-list radio"><i class="fa-solid fa-radio"></i>Radio</li>
+                    <li class="nav-list podcast"><i class="fa-solid fa-podcast"></i>Podcast</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- SEARCH AND THEME -->
+
+        <div class="search-theme">
+            <span class="search-span">
+                <i class="fa-solid fa-magnifying-glass fa-xl " style="color: white;"></i>
+                <input type="text" placeholder="browse" name="search" class="search-input" id="searchme">
+            </span>
+            <span class="theme-span">
+                <h3>THEME</h3>
+                <div class="black">Dark</div>
+                <div class="white">Light</div>
+                <div class="dynamic">Dynamic</div>
+            </span>
+        </div>
+
+
+        <!-- HOME -->
+
+
+        <div class="home">
+
+
+            <!-- HOME > Whats new -->
+
+            <!-- <div class="whatsnew">
+                <div class="newwrap">
+                    <div class="new-item">
+                        <img src="https://i.pinimg.com/564x/0b/6f/fe/0b6ffe0db59700fb0fee73fdbce89f30.jpg" alt="">
+                        <h1>THE WEEKND</h1>
+                    </div>
+                </div>
+                <div class="new-control">
+                    <i class="fa-solid fa-angle-left"></i>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div> -->
+
+            <!-- HOME > Recommended-section -->
+
+            <div class="recommend-section">
+                <h1 class="heading">Recommended Albums</h1>
+                <div class="recommend">
+                    <div class="rec1">
+                        <div class="recimg"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="rec1">
+                        <div class="recimg"><img
+                                src="https://pbs.twimg.com/media/FN4aCABVQAABDwg?format=jpg&name=4096x4096" alt="">
+                        </div>
+                        <div class="recinf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- HOME > section2 -->
+
+            <div class="section2">
+
+                <!-- HOME > Section2 > top-song -->
+
+                <div class="topsong">
+                    <h1 class="heading">Top 10 of the chart</h1>
+                    <div class="songitemcont">
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="songitem">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="song-name">
+                                <p>Lover</p>
+                                <p>Taylor Swift</p>
+                            </span>
+                            <span class="timestamp">
+                                <span class="length">03:20</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- HOME > section2 > moodcontainer -->
+
+                <div class="moodcontainer">
+                    <h2 class="heading">MOOD</h2>
+                    <div class="moodplaylist">
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/04/90/7e/04907e6f6161bcfd6dfea2ee5f440c13.jpg" alt=""><a
+                                href="">Romantic vibes</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/bf/17/04/bf170443f68bc52dbc5ce7f4b3382887.jpg" alt=""><a
+                                href="">Rainy vibes</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/d1/11/dc/d111dccc699520d341f04c328d6274ef.jpg" alt=""><a
+                                href="">Hip-Hop</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/c9/53/0f/c9530f49765f68e675d5c243863815be.jpg" alt=""><a
+                                href="">Punjabi vibes</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/fb/6e/dc/fb6edc37be1132afdaa402c3ce656422.jpg" alt=""><a
+                                href="">Party Starter</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/3f/a9/f5/3fa9f51f83052f2ebb3536ca1e12d7a8.jpg" alt=""><a
+                                href="">Gheto rap</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/22/9d/53/229d5325f4c25d8e4e09343b4ee4f6b5.jpg" alt=""><a
+                                href="">Travel Vibes</a></div>
+                        <div class="mooditem"><img
+                                src="https://i.pinimg.com/564x/e5/05/a6/e505a6379685bc0631818345aaa7804b.jpg" alt=""><a
+                                href="">Every shade of blue</a></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- SONGS -->
+
+
+        <div class="songs">
+
+            <div class="top-artist">
+                <h1 class="heading2">Top Artists</h1>
+                <div class="artistlist">
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/63/73/HD-wallpaper-harry-styles-fine-line-one-direction.jpg"
+                            alt="">
+                        <a href="#">Harry styles</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/163/778/HD-wallpaper-taylor-swift-singer-blonde-women.jpg"
+                            alt="">
+                        <a href="#">Taylor Swift</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://static.nexilia.it/biccy/2023/02/Shawn-Mendes-Sabrina-Carpenter-USA.jpg" alt="">
+                        <a href="#">Shawn Mendes</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/596/681/HD-wallpaper-2017-selena-gomez-selena-gomez-celebrities-music-girls.jpg"
+                            alt="">
+                        <a href="#">Selena Gomez</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/486/940/HD-wallpaper-billie-eilish-billie-eilish.jpg"
+                            alt="">
+                        <a href="#">Billie Eilish</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/194/1006/HD-wallpaper-justin-black-and-white-justin-bieber-justinbieber-music-pop-singer.jpg"
+                            alt="">
+                        <a href="#">Justin Bieber</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/318/99/HD-wallpaper-the-weeknd-abel.jpg" alt="">
+                        <a href="#">The Weeknd</a>
+                    </div>
+                    <div class="artistimg"><img
+                            src="https://w0.peakpx.com/wallpaper/888/779/HD-wallpaper-ed-sheeran-ed-sheeran-music-male-celebrities.jpg"
+                            alt="">
+                        <a href="#">Ed Sheeren</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-hits">
+                <h1 class="heading2">Today's Biggest Hits</h1>
+                <div class="song-hits-list">
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 tod-hits">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="song-hits">
+                <h1 class="heading2">Country Hits</h1>
+                <div class="song-hits-list">
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 country">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="song-hits">
+                <h1 class="heading2">Top Bollywood Hits</h1>
+                <div class="song-hits-list">
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 bolly">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-hits">
+                <h1 class="heading2">Pop Music</h1>
+                <div class="song-hits-list">
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 pop">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="song-hits">
+                <h1 class="heading2">R&B/Soul</h1>
+                <div class="song-hits-list">
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                    <div class="hit1 r-b">
+                        <div class="hit1-img"><img src="https://cdn.wallpapersafari.com/64/49/ukU4q3.jpg" alt=""></div>
+                        <div class="hit1-inf">
+                            <h3>Album Name</h3>
+                            <h4>Artist Name</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- LIKED -->
+
+
+        <div class="liked">
+
+            <div class="title">
+                <i class="fa-solid fa-heart"></i>
+                <h1 class="heading3">Liked Songs</h1>
+            </div>
+
+            <div class="liked-list">
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+                <div class="likeditem">
+                    <div>1</div>
+                    <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                        alt="">
+                    <span class="liked-name">
+                        <p>Lover</p>
+                        <p>Taylor Swift</p>
+                    </span>
+                    <span class="liked-album">
+                        albumname
+                    </span>
+                    <span class="liked-timestamp">
+                        <span class="time licon">03:20</span>
+                        <i class="fa-solid fa-heart licon"></i>
+                        <i class="fa-solid fa-ellipsis-vertical licon"></i>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PLAYLIST -->
+
+        <div class="playlist">
+
+            <div class="popular-playlist">
+                <h1 class="pheading">Popular Playlist</h1>
+                <div class="popular-list">
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <div class="popular-images">
+                            <img src="https://cdn.dribbble.com/userupload/3904431/file/original-3dfce0bfd8f4f2393689473bc0bf1f83.png?resize=400x0"
+                                alt="">
+                        </div>
+                        <div class="popular-info">
+                            <h4>playlist name</h4>
+                            <h4>something</h4>
+                        </div>
+                        <div class="popular-icons">
+                            <div class="i1">
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="i2">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <i class="fa-solid fa-xl fa-circle-play" style="color: #ff4d00;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PLAYLIST > SECTION2 -->
+
+
+            <div class="playlist-section2">
+
+
+                <!-- PLAYLIST > SECTION2 > MY-PLAYLIST -->
+
+
+                <div class="myplaylist">
+                    <h1 class="pheading">My Playlists</h1>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                    <div class="mylist-item">
+                        <div class="imginfo-wrap">
+                            <img src="https://lastfm.freetls.fastly.net/i/u/770x0/8a89bf00eff0d1912f33164d3a15071f.jpg#8a89bf00eff0d1912f33164d3a15071f"
+                                alt="">
+                            <span class="liked-name">
+                                <h3>Workout music</h3>
+                                <h5>By Vybify</h5>
+                            </span>
+                        </div>
+                        <span class="songnum">
+                            <h4>50 songs</h4>
+                        </span>
+                        <span class="liked-timestamp">
+                            <i class="fa-regular fa-xl fa-circle-play"></i>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- PLAYLIST > SECTION2 > RECENT-PLAYLIST -->
+
+
+
+                <div class="playlistwrapper">
+                    <h1 class="pheading">Recent playlist</h1>
+                    <div class="recent-playlist">
+                        <div class="playlist-items">
+                            <img src="https://techiemore.com/wp-content/uploads/Running-Man-Workout-Music-Playlist-Cover.jpg"
+                                alt="">
+                            <div class="rec-info">
+                                <h3>Workout Jam</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="https://i.pinimg.com/564x/0a/a2/15/0aa215be0cc918044488f63b9c102ead.jpg" alt="">
+                            <div class="rec-info">
+                                <h3>Taylor Swift Fever</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="https://i.pinimg.com/564x/9e/79/0c/9e790c204a0c65c7b37dca2eda08b9c9.jpg" alt="">
+                            <div class="rec-info">
+                                <h3>90's Hits</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="https://i.pinimg.com/564x/bf/d8/20/bfd820a81d6443d808a722d5f43a9be8.jpg" alt="">
+                            <div class="rec-info">
+                                <h3>Sad Songs</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="https://i.pinimg.com/564x/89/41/d5/8941d51a5ce39e6211cd49fcc3b534aa.jpg" alt="">
+                            <div class="rec-info">
+                                <h3>Chilled Beats</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="https://i.pinimg.com/564x/d0/1d/6d/d01d6df2ab97aad65ac2cd1082f8d7dd.jpg" alt="">
+                            <div class="rec-info">
+                                <h3>Dance To This</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <!-- <div class="playlist-items">
+                            <img src="" alt="">
+                            <div class="rec-info">
+                                <h3>Workout Jam</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div>
+                        <div class="playlist-items">
+                            <img src="" alt="">
+                            <div class="rec-info">
+                                <h3>Workout Jam</h3>
+                                <h4>By You</45>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="bottom">
+
+            <div class="song-playing">
+                <img src="https://images.genius.com/bfd0478e9b2a2e8174a17a95feb66aad.1000x1000x1.jpg" alt="">
+                <div class="currentsong">
+                    <marquee behavior="scroll" direction="right" scrollamount="3">Somewhere Only We Know</marquee>
+                    <h3 class="h3song">Somewhere only we know</h3>
+                    <h3>Keane</h3>
+                </div>
+            </div>
+            <div class="controls">
+                <i class="fa-solid fa-backward"></i>
+                <i class="fa-regular fa-circle-play"></i>
+                <i class="fa-solid fa-forward"></i>
+            </div>
+            <div class="phone-control">
+                <i class="fa-regular fa-circle-play"></i>
+                <i class="fa-solid fa-forward"></i>
+                <i class="fa-solid fa-angle-up open-player"></i>
+            </div>
+            <div class="range">
+                <input type="range" name="range" id="progress-bar" min="0" max="100">
+            </div>
+            <div class="icons">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-shuffle"></i>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- PHONE-SONG-PLAYER -->
+
+    <div class="song-player">
+
+        <i class="fa-solid fa-angle-down close-player"></i>
+        <div class="song-player-cont">
+
+            <div class="playerimg">
+                <img src="https://images.genius.com/bfd0478e9b2a2e8174a17a95feb66aad.1000x1000x1.jpg" alt="">
+                <div class="playerinfo">
+                    <h3>Song Name</h3>
+                    <h5>Singer Name</h5>
+                </div>
+            </div>
+
+            <div class="player-info-cont">
+                <input type="range">
+                <div class="player-control">
+                    <i class="fa-regular fa-heart one"></i>
+
+                    <i class="fa-solid fa-backward two"></i>
+                    <i class="fa-regular fa-circle-play"></i>
+                    <i class="fa-solid fa-forward two"></i>
+
+                    <i class="fa-solid fa-shuffle one"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let navs = document.querySelectorAll(".nav-list");
+
+        let homei = document.querySelector(".homei");
+        let songsi = document.querySelector(".songsi");
+        let likedi = document.querySelector(".likedi");
+        let playlisti = document.querySelector(".playlisti");
+
+        let homei1 = document.querySelector(".homei1");
+        let songsi1 = document.querySelector(".songsi1");
+        let likedi1 = document.querySelector(".likedi1");
+        let playlisti1 = document.querySelector(".playlisti1");
+
+        let exit = document.querySelector(".exit")
+        let bars = document.querySelector(".fa-bars")
+
+        let arrow = document.querySelector(".open-player")
+        let arrowDown = document.querySelector(".close-player")
+
+
+        let home = document.querySelector(".home")
+        let songs = document.querySelector(".songs")
+        let liked = document.querySelector(".liked")
+        let playlist = document.querySelector(".playlist")
+        let body = document.querySelector("body");
+        let screen = document.querySelector(".wrap-all")
+        let phoneMenu = document.querySelector(".phone-menu")
+        let phoneTheme = document.querySelector(".phone-theme-tab")
+        let songPlayer = document.querySelector(".song-player")
+        let phonenav= document.querySelector(".phone-navbar")
+
+
+        let dark = document.querySelector(".black");
+        let light = document.querySelector(".white");
+        let dynamic = document.querySelector(".dynamic");
+
+        let dark1 = document.querySelector(".black1");
+        let light1 = document.querySelector(".white1");
+        let dynamic1 = document.querySelector(".dynamic1");
+
+        let themei = document.querySelector(".fa-circle-half-stroke")
+
+        let hamburg=document.querySelector(".hamburger")
+        let pbrand=document.querySelector(".phone-brand")
+        let psearchbox=document.querySelector(".phone-searchbox")
+        let pinput=document.querySelector(".phone-search-input")
+        let pxmark= document.querySelector(".pxmark")
+
+        psearchbox.addEventListener("click",function(){
+            phonenav.style.alignContent="flex-start"
+            pinput.style.width="80%"
+            hamburg.style.display="none";
+            pbrand.style.display="none";
+            pinput.style.display="block"
+            pxmark.style.display="flex";
+        })
+        pxmark.addEventListener("click",function(){
+            phonenav.style.alignContent="space-between"
+            hamburg.style.display="flex";
+            pbrand.style.display="flex";
+            pinput.style.display="none"
+            pxmark.style.display="none";
+        })
+
+
+
+
+        let flag2 = 1;
+        themei.addEventListener("click", function () {
+            if (flag2 == 1) {
+                flag2 = 0;
+                phoneTheme.style.top = "3rem";
+            }
+            else {
+                flag2 = 1;
+                phoneTheme.style.top = "-5rem";
+            }
+        })
+
+
+        light.addEventListener("click", function () {
+            body.style.animationName = "whitebg";
+        })
+        dark.addEventListener("click", function () {
+            body.style.animationName = "blackbg";
+            // left.style.color = "rgb(0,0,0)";
+        })
+        dynamic.addEventListener("click", function () {
+            body.style.animationName = "bgchange";
+        })
+
+
+
+        light1.addEventListener("click", function () {
+            flag2 = 1;
+            body.style.animationName = "whitebg";
+            phoneTheme.style.top = "-5rem";
+        })
+        dark1.addEventListener("click", function () {
+            flag2 = 1;
+            body.style.animationName = "blackbg";
+            // left.style.color = "rgb(0,0,0)";
+            phoneTheme.style.top = "-5rem";
+        })
+        dynamic1.addEventListener("click", function () {
+            flag2 = 1;
+            body.style.animationName = "bgchange";
+            phoneTheme.style.top = "-5rem";
+        })
+
+
+        homei.addEventListener("click", function () {
+            for (const i of navs) {
+                // console.log(i);
+                if (i == homei) {
+                    i.style.color = "rgb(255, 71, 71)";
+                    i.style.cursor = "context-menu";
+                }
+                else {
+                    i.style.color = "rgb(202, 202, 202)";
+                    i.style.cursor = "pointer";
+
+                }
+            }
+            // section
+            // body.style.animationName="blackbg";
+            home.style.display = "flex";
+            songs.style.display = "none";
+            liked.style.display = "none";
+            playlist.style.display = "none";
+        })
+
+        songsi.addEventListener("click", function () {
+            for (const i of navs) {
+                // console.log(i);
+                if (i == songsi) {
+                    i.style.color = "rgb(255, 71, 71)";
+                    i.style.cursor = "context-menu";
+                }
+                else {
+                    i.style.color = "rgb(202, 202, 202)";
+                    i.style.cursor = "pointer";
+                }
+            }
+            // body.style.animationName="whitebg";
+            home.style.display = "none";
+            songs.style.display = "flex";
+            liked.style.display = "none";
+            playlist.style.display = "none";
+        })
+
+        likedi.addEventListener("click", function () {
+            for (const i of navs) {
+                // console.log(i);
+                if (i == likedi) {
+                    i.style.color = "rgb(255, 71, 71)";
+                    i.style.cursor = "context-menu";
+                }
+                else {
+                    i.style.color = "rgb(202, 202, 202)";
+                    i.style.cursor = "pointer";
+                }
+            }
+            home.style.display = "none";
+            songs.style.display = "none";
+            liked.style.display = "flex";
+            playlist.style.display = "none";
+        })
+
+        playlisti.addEventListener("click", function () {
+            for (const i of navs) {
+                // console.log(i);
+                if (i == playlisti) {
+                    i.style.color = "rgb(255, 71, 71)";
+                    i.style.cursor = "context-menu";
+                }
+                else {
+                    i.style.color = "rgb(202, 202, 202)";
+                    i.style.cursor = "pointer";
+                }
+            }
+
+            home.style.display = "none";
+            songs.style.display = "none";
+            liked.style.display = "none";
+            playlist.style.display = "flex";
+        })
+
+        exit.addEventListener("click", function () {
+            phoneMenu.style.display = "none";
+            screen.style.display = "block";
+        })
+
+        bars.addEventListener("click", function () {
+            phoneMenu.style.display = "block";
+            screen.style.display = "none";
+            flag2 = 1;
+            phoneTheme.style.top = "-5rem";
+        })
+
+        homei1.addEventListener("click", function () {
+            phoneMenu.style.display = "none";
+            screen.style.display = "block";
+            home.style.display = "flex";
+            songs.style.display = "none";
+            liked.style.display = "none";
+            playlist.style.display = "none";
+        })
+
+        songsi1.addEventListener("click", function () {
+            phoneMenu.style.display = "none";
+            screen.style.display = "block";
+            home.style.display = "none";
+            songs.style.display = "flex";
+            liked.style.display = "none";
+            playlist.style.display = "none";
+        })
+
+        likedi1.addEventListener("click", function () {
+            phoneMenu.style.display = "none";
+            screen.style.display = "block";
+            home.style.display = "none";
+            songs.style.display = "none";
+            liked.style.display = "flex";
+            playlist.style.display = "none";
+        })
+
+        playlisti1.addEventListener("click", function () {
+            phoneMenu.style.display = "none";
+            screen.style.display = "block";
+            home.style.display = "none";
+            songs.style.display = "none";
+            liked.style.display = "none";
+            playlist.style.display = "flex";
+        })
+
+        arrow.addEventListener("click", function () {
+            songPlayer.style.display = "block"
+            screen.style.display = "none"
+            // bottom.style.display = "none"
+        })
+        arrowDown.addEventListener("click", function () {
+            songPlayer.style.display = "none"
+            screen.style.display = "block"
+            // bottom.style.display = "flex"
+        })
+    </script>
+
+</body>
+
+</html>
